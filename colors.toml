@@ -1,0 +1,38 @@
+# Carmine — black, white, and a carmine red accent
+# Red is the only dominant hue; green/blue/cyan stay low-saturation so terminal
+# output and syntax highlighting remain readable.
+
+mode = "dark"
+
+accent = "#D70A53"          # carmine, bright
+selection = "#3D0F22"
+muted = "#3A3A3A"
+
+background = "#0D0D0D"
+dark_background = "#080808"
+darker_background = "#040404"
+lighter_background = "#181818"
+
+foreground = "#DEDEDE"
+bright_foreground = "#FFFFFF"
+light_foreground = "#9C9C9C"
+dark_foreground = "#5E5E5E"
+
+red = "#C4143F"             # carmine, lifted for readability on black
+orange = "#D2622F"
+yellow = "#C9A227"
+green = "#7FA65C"
+cyan = "#8FB4B8"
+blue = "#7C93BD"
+magenta = "#D7457B"
+brown = "#6E2233"
+
+bright_red = "#F2295B"
+bright_yellow = "#E6BF4A"
+bright_green = "#9CC47A"
+bright_cyan = "#B0D0D4"
+bright_blue = "#9CB2D8"
+bright_magenta = "#FF6E9C"
+
+hyprland_active_border = "rgba(D70A53ee) rgba(A80030ee) 45deg"
+hyprland_inactive_border = "rgba(2a2a2aaa)"
