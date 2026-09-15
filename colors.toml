@@ -18,7 +18,7 @@ bright_foreground = "#FFFFFF"
 light_foreground = "#9C9C9C"
 dark_foreground = "#5E5E5E"
 
-red = "#C4143F"             # carmine, lifted for readability on black
+red = "#D62A4E"             # carmine, lifted for readability on black
 orange = "#D2622F"
 yellow = "#C9A227"
 green = "#7FA65C"

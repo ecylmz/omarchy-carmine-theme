@@ -17,7 +17,7 @@ omarchy theme set carmine
 |---|---|
 | background | `#0D0D0D` |
 | foreground | `#DEDEDE` |
-| red | `#C4143F` |
+| red | `#D62A4E` |
 | accent | `#D70A53` |
 
 Red is the only dominant hue. Green, blue and cyan are kept low-saturation so

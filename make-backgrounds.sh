@@ -3,7 +3,7 @@
 # Keep the RED/BRED/BG values below in sync with colors.toml.
 set -e
 W=${1:-2560}; H=${2:-1440}
-RED='#C4143F'; BRED='#D70A53'; BG='#0A0A0A'
+RED='#D62A4E'; BRED='#D70A53'; BG='#0A0A0A'
 cd "$(dirname "$0")/backgrounds"
 
 # 01 diagonal slash
@@ -34,7 +34,7 @@ magick -size ${W}x${H} xc:"$BG" -stroke '#e8e8e8' -strokewidth 2 -fill none -dra
   -compose multiply -composite 03-rings.png
 
 # 04 topographic contours, white on the left turning red on the right
-magick -size ${W}x${H} plasma:fractal -colorspace Gray -blur 0x16 -normalize \
+magick -seed 42 -size ${W}x${H} plasma:fractal -colorspace Gray -blur 0x16 -normalize \
   -posterize 18 -edge 2 -threshold 12% _lines.png
 magick -size ${W}x${H} radial-gradient:white-black -roll +620+300 -evaluate pow 1.5 _mask.png
 magick -size ${W}x${H} xc:'#9E9E9E' \( -size ${W}x${H} xc:'#E01050' \) _mask.png -composite _color.png
@@ -55,8 +55,11 @@ magick -size ${W}x${H} xc:"$BG" 07-void.png
 
 rm -f _*.png
 
+# Flat graphics: 8-bit with a 256-color palette, which drops the set from ~5.7M to ~0.5M
+for f in 0*.png; do magick "$f" -depth 8 +dither -colors 256 -strip -define png:compression-level=9 "$f"; done
+
 # README thumbnails
 mkdir -p ../docs
-for f in 0*.png; do magick "$f" -resize 480x270 -depth 8 -strip "../docs/$f"; done
+for f in 0*.png; do magick "$f" -resize 480x270 -depth 8 +dither -colors 256 -strip "../docs/$f"; done
 
 echo "done: $(ls 0*.png | tr '\n' ' ')"
